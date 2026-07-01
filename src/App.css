@@ -182,3 +182,8 @@
     border-right-color: var(--border);
   }
 }
+.logo-icon {
+  font-size: 1.8rem;
+  color: #2c5364;
+  margin-right: 8px;
+}
