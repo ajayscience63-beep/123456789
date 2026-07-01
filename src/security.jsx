@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Security - CyberSentinels</title>
+import { Link } from "react-router-dom";
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
+function Security() {
+  return (
+    <>
+      <style>{`
 *{
     margin:0;
     padding:0;
@@ -151,157 +146,156 @@ tr:hover{
 .danger{
     background:#dc3545;
 }
-</style>
+`}</style>
+      <div className="page-security">
+        <div className="sidebar">
 
-</head>
+        <h2 className="logo">CyberSentinels</h2>
 
-<body>
+        <ul className="menu">
 
-<div class="sidebar">
+        <li>
+        <a href="/dashboard">
+        <i className="fas fa-home"></i> Dashboard
+        </a>
+        </li>
 
-<h2 class="logo">CyberSentinels</h2>
+        <li>
+        <a href="/users">
+        <i className="fas fa-users"></i> Users
+        </a>
+        </li>
 
-<ul class="menu">
+        <li>
+        <a href="/projects">
+        <i className="fas fa-folder"></i> Projects
+        </a>
+        </li>
 
-<li>
-<a href="dashboard.html">
-<i class="fas fa-home"></i> Dashboard
-</a>
-</li>
+        <li>
+        <a href="/messages">
+        <i className="fas fa-envelope"></i> Messages
+        </a>
+        </li>
 
-<li>
-<a href="users.html">
-<i class="fas fa-users"></i> Users
-</a>
-</li>
+        <li className="active">
+        <a href="/security">
+        <i className="fas fa-shield-alt"></i> Security
+        </a>
+        </li>
 
-<li>
-<a href="projects.html">
-<i class="fas fa-folder"></i> Projects
-</a>
-</li>
+        <li>
+        <a href="/reports">
+        <i className="fas fa-chart-line"></i> Reports
+        </a>
+        </li>
 
-<li>
-<a href="messages.html">
-<i class="fas fa-envelope"></i> Messages
-</a>
-</li>
+        <li>
+        <a href="/settings">
+        <i className="fas fa-cog"></i> Settings
+        </a>
+        </li>
 
-<li class="active">
-<a href="security.html">
-<i class="fas fa-shield-alt"></i> Security
-</a>
-</li>
+        <li className="logout">
+        <a href="/login">
+        <i className="fas fa-sign-out-alt"></i> Logout
+        </a>
+        </li>
 
-<li>
-<a href="reports.html">
-<i class="fas fa-chart-line"></i> Reports
-</a>
-</li>
+        </ul>
 
-<li>
-<a href="settings.html">
-<i class="fas fa-cog"></i> Settings
-</a>
-</li>
+        </div>
 
-<li class="logout">
-<a href="login.html">
-<i class="fas fa-sign-out-alt"></i> Logout
-</a>
-</li>
+        <div className="main">
 
-</ul>
+        <div className="header">
+        <h1>Security Dashboard</h1>
 
-</div>
+        <input type="text" className="search" placeholder="Search security logs..." />
+        </div>
 
-<div class="main">
+        <div className="cards">
 
-<div class="header">
-<h1>Security Dashboard</h1>
+        <div className="card">
+        <h3>Threats Blocked</h3>
+        <h2>1,254</h2>
+        </div>
 
-<input type="text" class="search" placeholder="Search security logs...">
-</div>
+        <div className="card">
+        <h3>Firewall Status</h3>
+        <h2>Active</h2>
+        </div>
 
-<div class="cards">
+        <div className="card">
+        <h3>System Health</h3>
+        <h2>98%</h2>
+        </div>
 
-<div class="card">
-<h3>Threats Blocked</h3>
-<h2>1,254</h2>
-</div>
+        <div className="card">
+        <h3>Alerts Today</h3>
+        <h2>12</h2>
+        </div>
 
-<div class="card">
-<h3>Firewall Status</h3>
-<h2>Active</h2>
-</div>
+        </div>
 
-<div class="card">
-<h3>System Health</h3>
-<h2>98%</h2>
-</div>
+        <table>
 
-<div class="card">
-<h3>Alerts Today</h3>
-<h2>12</h2>
-</div>
+        <thead>
 
-</div>
+        <tr>
+        <th>ID</th>
+        <th>Security Event</th>
+        <th>Date</th>
+        <th>Status</th>
+        </tr>
 
-<table>
+        </thead>
 
-<thead>
+        <tbody>
 
-<tr>
-<th>ID</th>
-<th>Security Event</th>
-<th>Date</th>
-<th>Status</th>
-</tr>
+        <tr>
+        <td>SEC001</td>
+        <td>Firewall Updated</td>
+        <td>30 Jun 2026</td>
+        <td><span className="status safe">Completed</span></td>
+        </tr>
 
-</thead>
+        <tr>
+        <td>SEC002</td>
+        <td>Unauthorized Login Attempt</td>
+        <td>30 Jun 2026</td>
+        <td><span className="status warning">Blocked</span></td>
+        </tr>
 
-<tbody>
+        <tr>
+        <td>SEC003</td>
+        <td>Malware Scan</td>
+        <td>29 Jun 2026</td>
+        <td><span className="status safe">Clean</span></td>
+        </tr>
 
-<tr>
-<td>SEC001</td>
-<td>Firewall Updated</td>
-<td>30 Jun 2026</td>
-<td><span class="status safe">Completed</span></td>
-</tr>
+        <tr>
+        <td>SEC004</td>
+        <td>Suspicious Network Activity</td>
+        <td>29 Jun 2026</td>
+        <td><span className="status danger">Investigating</span></td>
+        </tr>
 
-<tr>
-<td>SEC002</td>
-<td>Unauthorized Login Attempt</td>
-<td>30 Jun 2026</td>
-<td><span class="status warning">Blocked</span></td>
-</tr>
+        <tr>
+        <td>SEC005</td>
+        <td>Password Policy Updated</td>
+        <td>28 Jun 2026</td>
+        <td><span className="status safe">Completed</span></td>
+        </tr>
 
-<tr>
-<td>SEC003</td>
-<td>Malware Scan</td>
-<td>29 Jun 2026</td>
-<td><span class="status safe">Clean</span></td>
-</tr>
+        </tbody>
 
-<tr>
-<td>SEC004</td>
-<td>Suspicious Network Activity</td>
-<td>29 Jun 2026</td>
-<td><span class="status danger">Investigating</span></td>
-</tr>
+        </table>
 
-<tr>
-<td>SEC005</td>
-<td>Password Policy Updated</td>
-<td>28 Jun 2026</td>
-<td><span class="status safe">Completed</span></td>
-</tr>
+        </div>
+      </div>
+    </>
+  );
+}
 
-</tbody>
-
-</table>
-
-</div>
-
-</body>
-</html>
+export default Security;

@@ -1,14 +1,16 @@
+import { Link, useNavigate } from "react-router-dom";
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberSentinels - Sign Up</title>
+function Signup() {
+  const navigate = useNavigate();
 
-<style>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
+  return (
+    <>
+      <style>{`
 *{
     margin:0;
     padding:0; 
@@ -21,7 +23,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:url("cybsentinels.jpeg") no-repeat center center/cover;
+    background:url("/cybersentinels.jpeg") no-repeat center center/cover;
     position:relative;
     overflow:hidden;
 }
@@ -114,47 +116,45 @@ button:hover{
 .bottom-text a:hover{
     text-decoration:underline;
 }
+`}</style>
+      <div className="page-signup">
+        <div className="signup-box">
 
-</style>
+        <h1>Sign Up</h1>
 
-</head>
+        <p>Create your account to get started</p>
 
-<body>
+        <form onSubmit={handleSubmit}>
 
-<div class="signup-box">
+        <div className="input-box">
+        <input type="text" placeholder="Full Name" required />
+        </div>
 
-<h1>Sign Up</h1>
+        <div className="input-box">
+        <input type="email" placeholder="Email" required />
+        </div>
 
-<p>Create your account to get started</p>
+        <div className="input-box">
+        <input type="password" placeholder="Password" required />
+        </div>
 
-<form>
+        <div className="input-box">
+        <input type="password" placeholder="Confirm Password" required />
+        </div>
 
-<div class="input-box">
-<input type="text" placeholder="Full Name" required>
-</div>
+        <button type="submit">Sign Up</button>
 
-<div class="input-box">
-<input type="email" placeholder="Email" required>
-</div>
+        <div className="bottom-text">
+        Already have an account?
+        <Link to="/login">Login</Link>
+        </div>
 
-<div class="input-box">
-<input type="password" placeholder="Password" required>
-</div>
+        </form>
 
-<div class="input-box">
-<input type="password" placeholder="Confirm Password" required>
-</div>
+        </div>
+      </div>
+    </>
+  );
+}
 
-<button type="submit">Sign Up</button>
-
-<div class="bottom-text">
-Already have an account?
-<a href="login.html">Login</a>
-</div>
-
-</form>
-
-</div>
-
-</body>
-</html>
+export default Signup;

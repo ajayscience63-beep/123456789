@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Messages - CyberSentinels</title>
+import { Link } from "react-router-dom";
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
+function Message() {
+  return (
+    <>
+      <style>{`
 *{
     margin:0;
     padding:0;
@@ -116,123 +111,122 @@ body{
     color:gray;
     font-size:13px;
 }
-</style>
+`}</style>
+      <div className="page-message">
+        <div className="sidebar">
 
-</head>
+        <h2 className="logo">CyberSentinels</h2>
 
-<body>
+        <ul className="menu">
 
-<div class="sidebar">
+        <li>
+        <a href="/dashboard">
+        <i className="fas fa-home"></i> Dashboard
+        </a>
+        </li>
 
-<h2 class="logo">CyberSentinels</h2>
+        <li>
+        <a href="/users">
+        <i className="fas fa-users"></i> Users
+        </a>
+        </li>
 
-<ul class="menu">
+        <li>
+        <a href="/projects">
+        <i className="fas fa-folder"></i> Projects
+        </a>
+        </li>
 
-<li>
-<a href="dashboard.html">
-<i class="fas fa-home"></i> Dashboard
-</a>
-</li>
+        <li className="active">
+        <a href="/messages">
+        <i className="fas fa-envelope"></i> Messages
+        </a>
+        </li>
 
-<li>
-<a href="users.html">
-<i class="fas fa-users"></i> Users
-</a>
-</li>
+        <li>
+        <a href="/security">
+        <i className="fas fa-shield-alt"></i> Security
+        </a>
+        </li>
 
-<li>
-<a href="projects.html">
-<i class="fas fa-folder"></i> Projects
-</a>
-</li>
+        <li>
+        <a href="/reports">
+        <i className="fas fa-chart-line"></i> Reports
+        </a>
+        </li>
 
-<li class="active">
-<a href="messages.html">
-<i class="fas fa-envelope"></i> Messages
-</a>
-</li>
+        <li>
+        <a href="/settings">
+        <i className="fas fa-cog"></i> Settings
+        </a>
+        </li>
 
-<li>
-<a href="security.html">
-<i class="fas fa-shield-alt"></i> Security
-</a>
-</li>
+        <li className="logout">
+        <a href="/login">
+        <i className="fas fa-sign-out-alt"></i> Logout
+        </a>
+        </li>
 
-<li>
-<a href="reports.html">
-<i class="fas fa-chart-line"></i> Reports
-</a>
-</li>
+        </ul>
 
-<li>
-<a href="settings.html">
-<i class="fas fa-cog"></i> Settings
-</a>
-</li>
+        </div>
 
-<li class="logout">
-<a href="login.html">
-<i class="fas fa-sign-out-alt"></i> Logout
-</a>
-</li>
+        <div className="main">
 
-</ul>
+        <div className="header">
+        <h1>Messages</h1>
 
-</div>
+        <input type="text" className="search" placeholder="Search messages..." />
+        </div>
 
-<div class="main">
+        <div className="card">
 
-<div class="header">
-<h1>Messages</h1>
+        <div className="message">
+        <div>
+        <div className="name">Shree</div>
+        <div>Please review the latest security report.</div>
+        </div>
+        <div className="time">10:15 AM</div>
+        </div>
 
-<input type="text" class="search" placeholder="Search messages...">
-</div>
+        <div className="message">
+        <div>
+        <div className="name">Rahul</div>
+        <div>Project documentation has been uploaded.</div>
+        </div>
+        <div className="time">09:40 AM</div>
+        </div>
 
-<div class="card">
+        <div className="message">
+        <div>
+        <div className="name">Priya</div>
+        <div>The server maintenance is completed.</div>
+        </div>
+        <div className="time">Yesterday</div>
+        </div>
 
-<div class="message">
-<div>
-<div class="name">Shree</div>
-<div>Please review the latest security report.</div>
-</div>
-<div class="time">10:15 AM</div>
-</div>
+        <div className="message">
+        <div>
+        <div className="name">Arun</div>
+        <div>Please approve the new firewall settings.</div>
+        </div>
+        <div className="time">Yesterday</div>
+        </div>
 
-<div class="message">
-<div>
-<div class="name">Rahul</div>
-<div>Project documentation has been uploaded.</div>
-</div>
-<div class="time">09:40 AM</div>
-</div>
+        <div className="message">
+        <div>
+        <div className="name">Kavin</div>
+        <div>Security audit meeting at 3:00 PM.</div>
+        </div>
+        <div className="time">2 Days Ago</div>
+        </div>
 
-<div class="message">
-<div>
-<div class="name">Priya</div>
-<div>The server maintenance is completed.</div>
-</div>
-<div class="time">Yesterday</div>
-</div>
+        </div>
 
-<div class="message">
-<div>
-<div class="name">Arun</div>
-<div>Please approve the new firewall settings.</div>
-</div>
-<div class="time">Yesterday</div>
-</div>
+        </div>
+      </div>
+    </>
+  );
+}
 
-<div class="message">
-<div>
-<div class="name">Kavin</div>
-<div>Security audit meeting at 3:00 PM.</div>
-</div>
-<div class="time">2 Days Ago</div>
-</div>
-
-</div>
-
-</div>
-
-</body>
-</html>
+export default Message;

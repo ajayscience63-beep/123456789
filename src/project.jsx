@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects - CyberSentinels</title>
+import { Link } from "react-router-dom";
 
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
+function Project() {
+  return (
+    <>
+      <style>{`
 *{
     margin:0;
     padding:0;
@@ -152,162 +145,162 @@ tr:hover{
 .pending{
     background:red;
 }
-</style>
-</head>
+`}</style>
+      <div className="page-project">
+        <div className="sidebar">
 
-<body>
+        <h2 className="logo">CyberSentinels</h2>
 
-<div class="sidebar">
+        <ul className="menu">
 
-<h2 class="logo">CyberSentinels</h2>
+        <li>
+        <a href="/dashboard">
+        <i className="fas fa-home"></i> Dashboard
+        </a>
+        </li>
 
-<ul class="menu">
+        <li>
+        <a href="/users">
+        <i className="fas fa-users"></i> Users
+        </a>
+        </li>
 
-<li>
-<a href="dashboard.html">
-<i class="fas fa-home"></i> Dashboard
-</a>
-</li>
+        <li className="active">
+        <a href="/projects">
+        <i className="fas fa-folder"></i> Projects
+        </a>
+        </li>
 
-<li>
-<a href="users.html">
-<i class="fas fa-users"></i> Users
-</a>
-</li>
+        <li>
+        <a href="/messages">
+        <i className="fas fa-envelope"></i> Messages
+        </a>
+        </li>
 
-<li class="active">
-<a href="projects.html">
-<i class="fas fa-folder"></i> Projects
-</a>
-</li>
+        <li>
+        <a href="/security">
+        <i className="fas fa-shield-alt"></i> Security
+        </a>
+        </li>
 
-<li>
-<a href="messages.html">
-<i class="fas fa-envelope"></i> Messages
-</a>
-</li>
+        <li>
+        <a href="/reports">
+        <i className="fas fa-chart-line"></i> Reports
+        </a>
+        </li>
 
-<li>
-<a href="security.html">
-<i class="fas fa-shield-alt"></i> Security
-</a>
-</li>
+        <li>
+        <a href="/settings">
+        <i className="fas fa-cog"></i> Settings
+        </a>
+        </li>
 
-<li>
-<a href="reports.html">
-<i class="fas fa-chart-line"></i> Reports
-</a>
-</li>
+        <li className="logout">
+        <a href="/login">
+        <i className="fas fa-sign-out-alt"></i> Logout
+        </a>
+        </li>
 
-<li>
-<a href="settings.html">
-<i class="fas fa-cog"></i> Settings
-</a>
-</li>
+        </ul>
 
-<li class="logout">
-<a href="login.html">
-<i class="fas fa-sign-out-alt"></i> Logout
-</a>
-</li>
+        </div>
 
-</ul>
+        <div className="main">
 
-</div>
+        <div className="header">
+        <h1>Projects</h1>
 
-<div class="main">
+        <input type="text" className="search" placeholder="Search Projects..." />
+        </div>
 
-<div class="header">
-<h1>Projects</h1>
+        <div className="cards">
 
-<input type="text" class="search" placeholder="Search Projects...">
-</div>
+        <div className="card">
+        <h3>Total Projects</h3>
+        <h1>25</h1>
+        </div>
 
-<div class="cards">
+        <div className="card">
+        <h3>Completed</h3>
+        <h1>18</h1>
+        </div>
 
-<div class="card">
-<h3>Total Projects</h3>
-<h1>25</h1>
-</div>
+        <div className="card">
+        <h3>In Progress</h3>
+        <h1>5</h1>
+        </div>
 
-<div class="card">
-<h3>Completed</h3>
-<h1>18</h1>
-</div>
+        <div className="card">
+        <h3>Pending</h3>
+        <h1>2</h1>
+        </div>
 
-<div class="card">
-<h3>In Progress</h3>
-<h1>5</h1>
-</div>
+        </div>
 
-<div class="card">
-<h3>Pending</h3>
-<h1>2</h1>
-</div>
+        <table>
 
-</div>
+        <thead>
 
-<table>
+        <tr>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Team</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        </tr>
 
-<thead>
+        </thead>
 
-<tr>
-<th>Project ID</th>
-<th>Project Name</th>
-<th>Team</th>
-<th>Deadline</th>
-<th>Status</th>
-</tr>
+        <tbody>
 
-</thead>
+        <tr>
+        <td>P001</td>
+        <td>Cyber Threat Detection</td>
+        <td>Security Team</td>
+        <td>15 Jul 2026</td>
+        <td><span className="status completed">Completed</span></td>
+        </tr>
 
-<tbody>
+        <tr>
+        <td>P002</td>
+        <td>Network Monitoring</td>
+        <td>Infrastructure</td>
+        <td>30 Jul 2026</td>
+        <td><span className="status progress">In Progress</span></td>
+        </tr>
 
-<tr>
-<td>P001</td>
-<td>Cyber Threat Detection</td>
-<td>Security Team</td>
-<td>15 Jul 2026</td>
-<td><span class="status completed">Completed</span></td>
-</tr>
+        <tr>
+        <td>P003</td>
+        <td>Firewall Upgrade</td>
+        <td>IT Team</td>
+        <td>05 Aug 2026</td>
+        <td><span className="status pending">Pending</span></td>
+        </tr>
 
-<tr>
-<td>P002</td>
-<td>Network Monitoring</td>
-<td>Infrastructure</td>
-<td>30 Jul 2026</td>
-<td><span class="status progress">In Progress</span></td>
-</tr>
+        <tr>
+        <td>P004</td>
+        <td>Cloud Security Audit</td>
+        <td>Cloud Team</td>
+        <td>12 Aug 2026</td>
+        <td><span className="status progress">In Progress</span></td>
+        </tr>
 
-<tr>
-<td>P003</td>
-<td>Firewall Upgrade</td>
-<td>IT Team</td>
-<td>05 Aug 2026</td>
-<td><span class="status pending">Pending</span></td>
-</tr>
+        <tr>
+        <td>P005</td>
+        <td>Data Encryption</td>
+        <td>Security Team</td>
+        <td>20 Aug 2026</td>
+        <td><span className="status completed">Completed</span></td>
+        </tr>
 
-<tr>
-<td>P004</td>
-<td>Cloud Security Audit</td>
-<td>Cloud Team</td>
-<td>12 Aug 2026</td>
-<td><span class="status progress">In Progress</span></td>
-</tr>
+        </tbody>
 
-<tr>
-<td>P005</td>
-<td>Data Encryption</td>
-<td>Security Team</td>
-<td>20 Aug 2026</td>
-<td><span class="status completed">Completed</span></td>
-</tr>
+        </table>
 
-</tbody>
+        </div>
+      </div>
+    </>
+  );
+}
 
-</table>
-
-</div>
-
-</body>
-</html>
+export default Project;

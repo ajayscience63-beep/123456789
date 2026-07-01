@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Users - CyberSentinels</title>
+import { Link } from "react-router-dom";
 
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
+function User() {
+  return (
+    <>
+      <style>{`
 *{
     margin:0;
     padding:0;
@@ -133,154 +126,153 @@ tr:hover{
 .inactive-status{
     background:red;
 }
-</style>
+`}</style>
+      <div className="page-user">
+        <div className="sidebar">
 
-</head>
+        <h2 className="logo">CyberSentinels</h2>
 
-<body>
+        <ul className="menu">
 
-<div class="sidebar">
+        <li>
+        <a href="/dashboard">
+        <i className="fas fa-home"></i>
+        Dashboard
+        </a>
+        </li>
 
-<h2 class="logo">CyberSentinels</h2>
+        <li className="active">
+        <a href="/users">
+        <i className="fas fa-users"></i>
+        Users
+        </a>
+        </li>
 
-<ul class="menu">
+        <li>
+        <a href="/projects">
+        <i className="fas fa-folder"></i>
+        Projects
+        </a>
+        </li>
 
-<li>
-<a href="dashboard.html">
-<i class="fas fa-home"></i>
-Dashboard
-</a>
-</li>
+        <li>
+        <a href="/messages">
+        <i className="fas fa-envelope"></i>
+        Messages
+        </a>
+        </li>
 
-<li class="active">
-<a href="users.html">
-<i class="fas fa-users"></i>
-Users
-</a>
-</li>
+        <li>
+        <a href="/security">
+        <i className="fas fa-shield-alt"></i>
+        Security
+        </a>
+        </li>
 
-<li>
-<a href="projects.html">
-<i class="fas fa-folder"></i>
-Projects
-</a>
-</li>
+        <li>
+        <a href="/reports">
+        <i className="fas fa-chart-line"></i>
+        Reports
+        </a>
+        </li>
 
-<li>
-<a href="messages.html">
-<i class="fas fa-envelope"></i>
-Messages
-</a>
-</li>
+        <li>
+        <a href="/settings">
+        <i className="fas fa-cog"></i>
+        Settings
+        </a>
+        </li>
 
-<li>
-<a href="security.html">
-<i class="fas fa-shield-alt"></i>
-Security
-</a>
-</li>
+        <li className="logout">
+        <a href="/login2">
+        <i className="fas fa-sign-out-alt"></i>
+        Logout
+        </a>
+        </li>
 
-<li>
-<a href="reports.html">
-<i class="fas fa-chart-line"></i>
-Reports
-</a>
-</li>
+        </ul>
 
-<li>
-<a href="settings.html">
-<i class="fas fa-cog"></i>
-Settings
-</a>
-</li>
+        </div>
 
-<li class="logout">
-<a href="login2.html">
-<i class="fas fa-sign-out-alt"></i>
-Logout
-</a>
-</li>
+        <div className="main">
 
-</ul>
+        <div className="header">
+        <h1>Users</h1>
 
-</div>
+        <input type="text" className="search" placeholder="Search users..." />
 
-<div class="main">
+        </div>
 
-<div class="header">
-<h1>Users</h1>
+        <div className="card">
 
-<input type="text" class="search" placeholder="Search users...">
+        <h2>Registered Users</h2>
 
-</div>
+        <table>
 
-<div class="card">
+        <thead>
 
-<h2>Registered Users</h2>
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        </tr>
 
-<table>
+        </thead>
 
-<thead>
+        <tbody>
 
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Email</th>
-<th>Role</th>
-<th>Status</th>
-</tr>
+        <tr>
+        <td>001</td>
+        <td>Shree</td>
+        <td>shree@example.com</td>
+        <td>Admin</td>
+        <td><span className="status active-status">Active</span></td>
+        </tr>
 
-</thead>
+        <tr>
+        <td>002</td>
+        <td>Rahul</td>
+        <td>rahul@example.com</td>
+        <td>User</td>
+        <td><span className="status active-status">Active</span></td>
+        </tr>
 
-<tbody>
+        <tr>
+        <td>003</td>
+        <td>Priya</td>
+        <td>priya@example.com</td>
+        <td>Manager</td>
+        <td><span className="status inactive-status">Inactive</span></td>
+        </tr>
 
-<tr>
-<td>001</td>
-<td>Shree</td>
-<td>shree@example.com</td>
-<td>Admin</td>
-<td><span class="status active-status">Active</span></td>
-</tr>
+        <tr>
+        <td>004</td>
+        <td>Arun</td>
+        <td>arun@example.com</td>
+        <td>User</td>
+        <td><span className="status active-status">Active</span></td>
+        </tr>
 
-<tr>
-<td>002</td>
-<td>Rahul</td>
-<td>rahul@example.com</td>
-<td>User</td>
-<td><span class="status active-status">Active</span></td>
-</tr>
+        <tr>
+        <td>005</td>
+        <td>Kavin</td>
+        <td>kavin@example.com</td>
+        <td>Security</td>
+        <td><span className="status active-status">Active</span></td>
+        </tr>
 
-<tr>
-<td>003</td>
-<td>Priya</td>
-<td>priya@example.com</td>
-<td>Manager</td>
-<td><span class="status inactive-status">Inactive</span></td>
-</tr>
+        </tbody>
 
-<tr>
-<td>004</td>
-<td>Arun</td>
-<td>arun@example.com</td>
-<td>User</td>
-<td><span class="status active-status">Active</span></td>
-</tr>
+        </table>
 
-<tr>
-<td>005</td>
-<td>Kavin</td>
-<td>kavin@example.com</td>
-<td>Security</td>
-<td><span class="status active-status">Active</span></td>
-</tr>
+        </div>
 
-</tbody>
+        </div>
+      </div>
+    </>
+  );
+}
 
-</table>
-
-</div>
-
-</div>
-
-</body>
-</html>
+export default User;
