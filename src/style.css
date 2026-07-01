@@ -1,0 +1,928 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f8fb;
+    color:#222;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+header{
+    position:sticky;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:#efecf1;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.navbar{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    flex-wrap:wrap;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+}
+
+.logo h2{
+    color:#097d8f;
+    font-size:28px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#060000;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+}
+
+/* ===========================
+   SEARCH BOX
+=========================== */
+
+.search-box{
+    display:flex;
+    background:#fff;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    padding:10px 15px;
+    width:180px;
+}
+
+.search-box button{
+    border:none;
+    background:#00bfff;
+    color:#fff;
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+/* ===========================
+   LOGIN & CART
+=========================== */
+
+.icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.cart-icon{
+    position:relative;
+    color:#fff;
+    font-size:24px;
+    text-decoration:none;
+}
+
+#cart-count{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    background:red;
+    color:#fff;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    font-size:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+.login-form input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+.login-form input::placeholder{
+    color:#666;
+}
+
+.login-btn{
+    background:#00bfff;
+    color:#fff;
+    padding:10px 22px;
+    border-radius:25px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#0099cc;
+
+}
+.signin-btn{
+    background: #00bfff;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.signin-btn:hover{
+    background: #0099cc;
+}
+.admin-btn{
+    width:100%;
+    background:#34baf3;
+    color:rgb(24, 25, 25);
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.admin-btn:hover{
+    background:#0f6dca;
+}
+.theme-btn{
+    background:#00bfff;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.theme-btn:hover{
+    background:#0099cc;
+}
+/* Dashboard Button */
+
+.dashboard-icon{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:white;
+    background:#1565ff;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.dashboard-icon i{
+    font-size:18px;
+}
+
+.dashboard-icon:hover{
+    background:#0b4fd8;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   BANNER SLIDER
+=========================== */
+
+.banner-slider{
+    width:100%;
+    height:500px;
+    position:relative;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.slide::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.slide-text{
+    position:absolute;
+    top:50%;
+    left:8%;
+    transform:translateY(-50%);
+    color:#fff;
+    z-index:2;
+}
+
+.slide-text h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.slide-text p{
+    font-size:20px;
+}
+
+.slider-dots{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    z-index:5;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    background:#fff;
+    border-radius:50%;
+    display:inline-block;
+    margin:0 6px;
+    opacity:.5;
+}
+
+.dot.active{
+    opacity:1;
+    background:#00d9ff;
+}
+/* ===========================
+   COMMON SECTION
+=========================== */
+
+section{
+    padding:70px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:36px;
+    color:#031b4e;
+    margin-bottom:50px;
+}
+
+/* ===========================
+   WHY CHOOSE US
+=========================== */
+
+.why-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.why-card{
+    background:#fff;
+    padding:35px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+.why-card:hover{
+    transform:translateY(-10px);
+}
+
+.why-card i{
+    font-size:45px;
+    color:#00bfff;
+    margin-bottom:20px;
+}
+
+.why-card h3{
+    margin-bottom:15px;
+    color:#031b4e;
+}
+
+/* ===========================
+   FEATURES
+=========================== */
+
+.feature-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.feature-card{
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+.feature-card:hover{
+    transform:scale(1.05);
+}
+
+.feature-card i{
+    font-size:45px;
+    color:#0077ff;
+    margin-bottom:20px;
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+    color:#031b4e;
+}
+
+/* ===========================
+   STATISTICS
+=========================== */
+
+.stats{
+    background:#031b4e;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat-box{
+    color:#fff;
+}
+
+.stat-box h2{
+    font-size:48px;
+    color:#00d9ff;
+}
+
+.stat-box p{
+    margin-top:10px;
+}
+
+/* ===========================
+   ABOUT
+=========================== */
+
+.about{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.about-image img{
+    width:500px;
+    max-width:100%;
+    border-radius:15px;
+}
+
+.about-content{
+    flex:1;
+}
+
+.about-content h2{
+    font-size:38px;
+    color:#031b4e;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    margin-bottom:18px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#00bfff;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#0077ff;
+}
+
+/* ===========================
+   NEWSLETTER
+=========================== */
+
+.newsletter{
+    background:#031b4e;
+    color:#fff;
+    text-align:center;
+}
+
+.newsletter h2{
+    margin-bottom:15px;
+}
+
+.newsletter-form{
+    margin-top:25px;
+}
+
+.newsletter-form input{
+    width:320px;
+    max-width:90%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    outline:none;
+}
+
+.newsletter-form button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#00d9ff;
+    color:#fff;
+    margin-left:10px;
+    cursor:pointer;
+}
+/* ===========================
+   CONTACT
+=========================== */
+
+.contact{
+    background:#efeff0;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.contact-box{
+    background:#1b74a4;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.contact-box:hover{
+    transform:translateY(-8px);
+}
+
+.contact-box i{
+    font-size:40px;
+    color:#00bfff;
+    margin-bottom:15px;
+}
+
+.contact-box h3{
+    color:#031b4e;
+    margin-bottom:10px;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    background:#031b4e;
+    color:#000606;
+    padding:60px 8% 20px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-box h3{
+    margin-bottom:20px;
+    color:#00d9ff;
+}
+
+.footer-box p{
+    line-height:1.8;
+}
+
+.footer-box a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    margin:10px 0;
+    transition:.3s;
+}
+
+.footer-box a:hover{
+    color:#00d9ff;
+    padding-left:5px;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.social-icons a{
+    width:45px;
+    height:45px;
+    background:#fff;
+    color:#031b4e;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:#00bfff;
+    color:#fff;
+    transform:rotate(360deg);
+}
+
+hr{
+    margin:40px 0 20px;
+    border:0;
+    border-top:1px solid rgba(255,255,255,.2);
+}
+
+.copyright{
+    text-align:center;
+    font-size:15px;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media(max-width:992px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .slide-text{
+        left:5%;
+        right:5%;
+        text-align:center;
+    }
+
+    .slide-text h2{
+        font-size:36px;
+    }
+
+    .slide-text p{
+        font-size:18px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .search-box input{
+        width:140px;
+    }
+
+    .slide-text h2{
+        font-size:28px;
+    }
+
+    .slide-text p{
+        font-size:16px;
+    }
+
+    .banner-slider{
+        height:320px;
+    }
+
+    .newsletter-form{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+        align-items:center;
+    }
+
+    .newsletter-form button{
+        margin-left:0;
+    }
+
+}
+.admin-login-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f5f5f5;
+}
+
+.admin-login-form{
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.admin-login-form h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.admin-login-form input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+body.dark-mode{
+    background-color:#121212 !important;
+    color:white !important;
+}
+
+body.dark-mode section{
+    background-color:#121212 !important;
+    color:white !important;
+}
+
+body.dark-mode .navbar{
+    background-color:#1a1a1a !important;
+}
+
+body.dark-mode footer{
+    background-color:#111 !important;
+    color:white !important;
+}
+
+body.dark-mode .card,
+body.dark-mode .service-card,
+body.dark-mode .contact-card{
+    background-color:#222 !important;
+    color:white !important;
+}
+/* ===============================
+   PROJECT ENQUIRY FORM
+================================ */
+
+.enquiry{
+    width:100%;
+    padding:70px 10%;
+    background:#f4f7fb;
+    text-align:center;
+}
+
+.enquiry h2{
+    font-size:40px;
+    color:#003366;
+    margin-bottom:40px;
+}
+
+#enquiryForm{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+#enquiryForm input,
+#enquiryForm textarea{
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    transition:0.3s;
+}
+
+#enquiryForm input:focus,
+#enquiryForm textarea:focus{
+    border-color:#00bfff;
+    box-shadow:0 0 8px rgba(0,191,255,.3);
+}
+
+#enquiryForm textarea{
+    resize:vertical;
+}
+
+#enquiryForm button{
+    width:220px;
+    margin:auto;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#0099ff;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#enquiryForm button:hover{
+    background:#0077cc;
+}
+
+.services{
+    padding:60px 8%;
+    background:#f4f8fc;
+}
+
+.services h1{
+    text-align:center;
+    color:#0b5ed7;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+.services-container{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.services-column{
+    flex:1;
+    min-width:420px;
+}
+
+.service-box{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.service-box h2{
+    color:#0c0e11;
+    margin-bottom:10px;
+}
+
+.service-box p{
+    color:#555;
+    line-height:1.6;
+}
+/* ================= OFFICE HOURS ================= */
+
+.office-hours{
+    width:90%;
+    margin:50px auto;
+    text-align:center;
+}
+
+.office-hours h2{
+    color:#76a0df;
+    margin-bottom:20px;
+    font-size:32px;
+}
+
+.hours-box{
+    background:#ffffff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    max-width:500px;
+    margin:auto;
+}
+
+.hours-box p{
+    font-size:18px;
+    margin:12px 0;
+    color:#444;
+}
+
+/* ================= WHY CONTACT US ================= */
+
+.why-contact{
+    width:90%;
+    margin:60px auto;
+    text-align:center;
+}
+
+.why-contact h2{
+    color:#0d0d0e;
+    margin-bottom:35px;
+    font-size:32px;
+}
+
+.why-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.why-box{
+    background:#ffffff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.why-box:hover{
+    transform:translateY(-8px);
+}
+
+.why-box h3{
+    color:#749ae6;
+    margin-bottom:15px;
+}
+
+.why-box p{
+    color:#555;
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+
+    .why-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ================= BENEFITS OF US ================= */
+
+.benefits{
+    width:85%;
+    margin:60px auto;
+    padding:40px;
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.benefits h2{
+    color:#1565ff;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.benefits-text{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+    text-align:justify;
+}
