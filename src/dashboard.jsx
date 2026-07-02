@@ -5,7 +5,7 @@ function Dashboard() {
   return (
     <div className="container">
       <aside className="sidebar">
-        <div className="logo">CyberSentinels</div>
+        <div className="logo"><i className="fa-solid fa-shield-halved"></i> CyberSentinels</div>
         <ul className="menu">
           <li><Link to="/dashboard"><i className="fa-solid fa-gauge-high"></i> Dashboard</Link></li>
           <li><Link to="/security"><i className="fa-solid fa-shield-halved"></i> Security</Link></li>

@@ -1,0 +1,108 @@
+/* ===========================================================
+   CONTACT-PAGE SPECIFIC — contact cards, office hours,
+   why-contact grid. Shared tokens/navbar/footer live in
+   carbon-theme.css.
+=========================================================== */
+
+.page-contact .contact-hero {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(33, 230, 193, 0.08), transparent 45%),
+    var(--carbon-950);
+  border-bottom: 1px solid var(--carbon-700);
+}
+
+.page-contact .contact-sub {
+  max-width: 520px;
+  margin: 14px auto 0;
+  font-size: 16px;
+}
+
+.page-contact .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.page-contact .contact-card {
+  text-align: center;
+}
+
+.page-contact .contact-card i {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-contact .contact-card .social-icons {
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* ===========================
+   OFFICE HOURS
+=========================== */
+
+.page-contact .office-hours {
+  background: var(--carbon-900);
+  border-top: 1px solid var(--carbon-700);
+  border-bottom: 1px solid var(--carbon-700);
+  text-align: center;
+}
+
+.page-contact .hours-box {
+  max-width: 460px;
+  margin: auto;
+  background: var(--carbon-850);
+  border: 1px solid var(--carbon-700);
+  border-radius: 10px;
+  padding: 8px 28px;
+}
+
+.page-contact .hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--carbon-700);
+  font-size: 15px;
+  color: var(--ink-300);
+}
+
+.page-contact .hours-row:last-child {
+  border-bottom: none;
+}
+
+.page-contact .hours-row span:first-child {
+  color: var(--ink-050);
+  font-weight: 500;
+}
+
+.page-contact .hours-row .closed {
+  color: var(--amber);
+}
+
+/* ===========================
+   WHY CONTACT US
+=========================== */
+
+.page-contact .why-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 640px) {
+  .page-contact .contact-sub {
+    text-align: left;
+  }
+
+  .page-contact .hours-box {
+    padding: 6px 20px;
+  }
+}

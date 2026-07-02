@@ -1,0 +1,506 @@
+/* ===========================================================
+   SHARED CARBON THEME — navbar, footer, buttons, section
+   headers, tokens. Scoped to .carbon-page so every page that
+   opts in (Home, About, Contact) looks consistent, without
+   touching Login/Signup/Dashboard/etc.
+=========================================================== */
+
+.carbon-page {
+  --carbon-950: #0b0b0b;
+  --carbon-900: #121212;
+  --carbon-850: #171717; /* Carbon — brand reference color */
+  --carbon-800: #1c1c1c;
+  --carbon-700: #232323;
+  --carbon-600: #2e2e2e;
+  --carbon-500: #3d3d3d;
+  --ink-050: #f4f4f3;
+  --ink-300: #b0b0ad;
+  --ink-500: #7a7a77;
+  --signal: #21e6c1;
+  --signal-dim: #12897a;
+  --amber: #ffb020;
+
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  background: var(--carbon-950);
+  color: var(--ink-050);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.carbon-page * {
+  box-sizing: border-box;
+}
+
+.carbon-page ::selection {
+  background: var(--signal);
+  color: var(--carbon-950);
+}
+
+/* Neutralize the old Vite boilerplate #root constraint
+   (width:1126px, text-align:center, border-inline). */
+#root:has(.carbon-page) {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border-inline: none;
+  display: block;
+  min-height: 0;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.carbon-page header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(11, 11, 11, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--carbon-700);
+  box-shadow: none;
+}
+
+.carbon-page .navbar {
+  max-width: 1360px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.carbon-page .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carbon-page .logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+}
+
+.carbon-page .logo-icon {
+  color: var(--signal);
+  font-size: 22px;
+}
+
+.carbon-page .logo h2 {
+  font-family: var(--font-display);
+  color: var(--ink-050);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.carbon-page .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 34px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.carbon-page .nav-links a {
+  text-decoration: none;
+  color: var(--ink-300);
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.carbon-page .nav-links a:hover,
+.carbon-page .nav-links a.active {
+  color: var(--signal);
+}
+
+/* ===========================
+   SEARCH BOX
+=========================== */
+
+.carbon-page .search-box {
+  display: flex;
+  background: var(--carbon-800);
+  border: 1px solid var(--carbon-600);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.carbon-page .search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 9px 14px;
+  width: 160px;
+  color: var(--ink-050);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.carbon-page .search-box input::placeholder {
+  color: var(--ink-500);
+}
+
+.carbon-page .search-box button {
+  border: none;
+  background: transparent;
+  color: var(--ink-300);
+  padding: 9px 14px;
+  cursor: pointer;
+  border-left: 1px solid var(--carbon-600);
+  transition: color 0.2s ease;
+}
+
+.carbon-page .search-box button:hover {
+  color: var(--signal);
+}
+
+/* ===========================
+   NAV ACTIONS / BUTTONS
+=========================== */
+
+.carbon-page .icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.carbon-page .admin-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-500);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+
+.carbon-page .admin-link:hover {
+  color: var(--ink-300);
+}
+
+.carbon-page .login-btn {
+  background: transparent;
+  color: var(--ink-050);
+  border: 1px solid var(--carbon-600);
+  padding: 9px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+.carbon-page .login-btn:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+.carbon-page .signup-btn {
+  background: var(--signal);
+  color: var(--carbon-950);
+  padding: 9px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.carbon-page .signup-btn:hover {
+  background: #4df0d3;
+  transform: translateY(-1px);
+}
+
+.carbon-page .btn-primary {
+  display: inline-block;
+  background: var(--signal);
+  color: var(--carbon-950);
+  padding: 13px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.25s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.carbon-page .btn-primary:hover {
+  background: #4df0d3;
+  transform: translateY(-2px);
+}
+
+.carbon-page .btn-ghost {
+  display: inline-block;
+  border: 1px solid var(--carbon-600);
+  background: transparent;
+  color: var(--ink-050);
+  padding: 13px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.carbon-page .btn-ghost:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+/* ===========================
+   COMMON SECTION / TYPOGRAPHY
+=========================== */
+
+.carbon-page section {
+  padding: 90px 8%;
+}
+
+.carbon-page .section-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.carbon-page .section-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--signal);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.carbon-page .section-title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--ink-050);
+  margin: 0;
+}
+
+.carbon-page h1,
+.carbon-page h2,
+.carbon-page h3 {
+  font-family: var(--font-display);
+  color: var(--ink-050);
+}
+
+.carbon-page p {
+  color: var(--ink-300);
+  line-height: 1.7;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.carbon-page footer {
+  background: var(--carbon-900);
+  color: var(--ink-300);
+  padding: 64px 8% 24px;
+  border-top: 1px solid var(--carbon-700);
+}
+
+.carbon-page .footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.carbon-page .footer-box h3 {
+  margin-bottom: 18px;
+  color: var(--ink-050);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.carbon-page .footer-box p {
+  line-height: 1.75;
+  font-size: 14px;
+  color: var(--ink-500);
+}
+
+.carbon-page .footer-box a {
+  display: block;
+  color: var(--ink-300);
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.carbon-page .footer-box a:hover {
+  color: var(--signal);
+  padding-left: 4px;
+}
+
+.carbon-page .social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.carbon-page .social-icons a {
+  width: 38px;
+  height: 38px;
+  background: var(--carbon-800);
+  border: 1px solid var(--carbon-600);
+  color: var(--ink-300);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  transition: 0.25s ease;
+  margin: 0;
+}
+
+.carbon-page .social-icons a:hover {
+  background: var(--signal);
+  color: var(--carbon-950);
+  border-color: var(--signal);
+  transform: translateY(-2px);
+  padding-left: 0;
+}
+
+.carbon-page footer hr {
+  margin: 40px 0 22px;
+  border: 0;
+  border-top: 1px solid var(--carbon-700);
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carbon-page .copyright {
+  text-align: center;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--ink-500);
+}
+
+/* ===========================
+   GENERIC CARD (used by why-box,
+   benefit tiles, contact tiles)
+=========================== */
+
+.carbon-page .carbon-card {
+  position: relative;
+  background: var(--carbon-850);
+  border: 1px solid var(--carbon-700);
+  padding: 32px 28px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.carbon-page .carbon-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--signal-dim);
+}
+
+.carbon-page .carbon-card i {
+  font-size: 26px;
+  color: var(--signal);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.carbon-page .carbon-card h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.carbon-page .carbon-card p {
+  font-size: 14.5px;
+}
+
+/* ===========================
+   RESPONSIVE NAV (shared)
+=========================== */
+
+@media (max-width: 1180px) {
+  .carbon-page .nav-links {
+    gap: 22px;
+  }
+
+  .carbon-page .search-box {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .carbon-page .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 24px;
+  }
+
+  .carbon-page .nav-links {
+    gap: 20px;
+    order: 2;
+  }
+
+  .carbon-page .icons {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .carbon-page section {
+    padding: 56px 6%;
+  }
+
+  .carbon-page .navbar {
+    padding: 14px 5%;
+  }
+
+  .carbon-page .logo h2 {
+    font-size: 18px;
+  }
+
+  .carbon-page .nav-links {
+    font-size: 12px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .carbon-page .icons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .carbon-page .login-btn,
+  .carbon-page .signup-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .carbon-page .section-title {
+    font-size: 26px;
+  }
+
+  .carbon-page .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

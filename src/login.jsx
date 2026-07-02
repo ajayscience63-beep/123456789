@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./login.css";
 
 function Login() {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     if (email === "" || password === "") {
@@ -14,141 +16,45 @@ function Login() {
   };
 
   return (
-    <>
-      <style>{`
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
+    <div className="auth-page">
+      <div className="auth-grid" aria-hidden="true"></div>
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:url("/cybersentinels.jpeg") center/cover no-repeat;
-position:relative;
-overflow:hidden;
-}
+      <div className="auth-box">
+        <Link to="/" className="auth-logo">
+          <i className="fa-solid fa-shield-halved"></i>
+          <span>CyberSentinels</span>
+        </Link>
 
-body::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.72);
-}
+        <h1>Welcome back</h1>
+        <p className="auth-sub">Log in to your incident response console.</p>
 
-.login-box{
-position:relative;
-z-index:1;
-width:400px;
-padding:40px;
-background:rgba(15,20,40,.45);
-backdrop-filter:blur(12px);
-border-radius:15px;
-border:1px solid rgba(255,255,255,.2);
-box-shadow:0 0 25px rgba(0,0,0,.5);
-text-align:center;
-color:white;
-}
+        <form onSubmit={handleLogin}>
+          <div className="input-box">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" placeholder="you@company.com" required />
+          </div>
 
-.login-box h1{
-font-size:42px;
-margin-bottom:10px;
-}
+          <div className="input-box">
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" required />
+          </div>
 
-.login-box p{
-margin-bottom:30px;
-color:#ddd;
-}
+          <button type="submit" className="auth-primary-btn">Login</button>
+        </form>
 
-.input-box{
-margin-bottom:18px;
-}
-
-.input-box input{
-width:100%;
-padding:14px;
-border-radius:8px;
-border:1px solid #3c8cff;
-background:rgba(255,255,255,.05);
-color:white;
-font-size:16px;
-outline:none;
-}
-
-.input-box input::placeholder{
-color:#ccc;
-}
-
-button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:8px;
-background:#1565ff;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-background:#0b4fd8;
-}
-
-.bottom-text{
-margin-top:20px;
-color:#ddd;
-}
-
-.bottom-text a{
-color:#1e90ff;
-text-decoration:none;
-}
-
-.bottom-text a:hover{
-text-decoration:underline;
-}
-`}</style>
-      <div className="page-login">
-        <div className="login-box">
-
-        <h1>Login</h1>
-
-        <p>Welcome Back!</p>
-
-
-        <div className="input-box">
-        <input type="email" id="email" placeholder="Email" required />
-        </div>
-
-        <div className="input-box">
-        <input type="password" id="password" placeholder="Password" required />
-        </div>
-
-
-        <button type="button" onClick={handleLogin}>
-            Login
+        <button
+          type="button"
+          className="auth-ghost-btn"
+          onClick={() => navigate("/admin-login")}
+        >
+          Admin Login
         </button>
 
-        <br /><br />
-
-        <button type="button" onClick={() => navigate("/admin-login")}>
-            Admin Login
-        </button>
         <div className="bottom-text">
-        Don't have an account?
-        <Link to="/signup">Sign Up</Link>
-        </div>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

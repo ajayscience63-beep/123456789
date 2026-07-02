@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
+import "./carbon-theme.css";
+import "./home.css";
 
 function Home() {
   const slideCount = 3;
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [darkMode, setDarkMode] = useState(false);
+  const [scanTime, setScanTime] = useState(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slideCount);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle("dark-mode", darkMode);
-  }, [darkMode]);
+    const clock = setInterval(() => setScanTime(new Date()), 1000);
+    return () => clearInterval(clock);
+  }, []);
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
@@ -43,24 +46,26 @@ function Home() {
 
   const slides = [
     {
-      gradient: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      tag: "THREAT_SURFACE.MAP",
       title: "Protect Your Digital World",
-      text: "Advanced Cybersecurity Solutions for Modern Organizations",
+      text: "Advanced cybersecurity solutions for modern organizations.",
     },
     {
-      gradient: "linear-gradient(135deg, #1a2980, #26d0ce)",
+      tag: "DETECTION_ENGINE.RUN",
       title: "Advanced Threat Detection",
-      text: "Monitor, Detect and Respond to Security Threats",
+      text: "Monitor, detect and respond to security threats in real time.",
     },
     {
-      gradient: "linear-gradient(135deg, #16222a, #3a6073)",
+      tag: "RESPONSE_PROTOCOL.SYS",
       title: "Secure. Monitor. Defend.",
-      text: "Your Trusted Cybersecurity Incident Response Platform",
+      text: "Your trusted cybersecurity incident response platform.",
     },
   ];
 
+  const timeStr = scanTime.toLocaleTimeString("en-US", { hour12: false });
+
   return (
-    <div className="page-home">
+    <div className="page-home carbon-page">
       {/* ================= HEADER ================= */}
       <header>
         <nav className="navbar">
@@ -78,52 +83,59 @@ function Home() {
 
           <div className="search-box">
             <input type="text" placeholder="Search..." />
-            <button>
+            <button aria-label="Search">
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
 
           <div className="icons">
+            <a href="/admin-login" className="admin-link">Admin Login</a>
             <a href="/login" className="login-btn">Login</a>
             <a href="/signup" className="signup-btn">Sign Up</a>
-            <a href="/admin-login" className="signup-btn">Admin Login</a>
-
-            <a href="/dashboard" className="dashboard-icon">
-              <i className="fa-solid fa-gauge-high"></i>
-              <span>Dashboard</span>
-            </a>
-
-            <button
-              id="theme-toggle"
-              className="theme-btn"
-              onClick={() => setDarkMode((prev) => !prev)}
-            >
-              {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-            </button>
           </div>
         </nav>
       </header>
 
-      {/* ================= BANNER SLIDER ================= */}
-      <section className="banner-slider">
-        {slides.map((slide, i) => (
-          <div
-            key={i}
-            className={`slide${currentSlide === i ? " active" : ""}`}
-            style={{ background: slide.gradient }}
-          >
-            <div className="slide-text">
-              <h2>{slide.title}</h2>
+      {/* ================= HERO / HUD ================= */}
+      <section className="hero-hud">
+        <div className="hud-grid" aria-hidden="true"></div>
+        <div className="hud-frame">
+          <span className="corner tl"></span>
+          <span className="corner tr"></span>
+          <span className="corner bl"></span>
+          <span className="corner br"></span>
+        </div>
+
+        <div className="hud-statusbar">
+          <span className="status-live">
+            <span className="pulse-dot"></span> SYSTEM ONLINE
+          </span>
+          <span className="status-clock">{timeStr} UTC</span>
+        </div>
+
+        <div className="hud-body">
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className={`hud-slide${currentSlide === i ? " active" : ""}`}
+            >
+              <span className="hud-eyebrow">&gt;&gt; {slide.tag}</span>
+              <h1>{slide.title}</h1>
               <p>{slide.text}</p>
             </div>
-          </div>
-        ))}
+          ))}
 
-        <div className="slider-dots">
+          <div className="hud-cta">
+            <a href="/signup" className="btn-primary">Request Access</a>
+            <a href="/#services" className="btn-ghost">View Platform</a>
+          </div>
+        </div>
+
+        <div className="hud-progress">
           {slides.map((_, i) => (
             <span
               key={i}
-              className={`dot${currentSlide === i ? " active" : ""}`}
+              className={`bar${currentSlide === i ? " active" : ""}`}
               onClick={() => setCurrentSlide(i)}
             ></span>
           ))}
@@ -132,28 +144,35 @@ function Home() {
 
       {/* ================= WHY CHOOSE US ================= */}
       <section className="why-us">
-        <h2 className="section-title">Why Choose Us</h2>
+        <div className="section-head">
+          <span className="section-eyebrow">// capabilities</span>
+          <h2 className="section-title">Why Choose Us</h2>
+        </div>
 
         <div className="why-container">
           <div className="why-card">
+            <span className="card-index">01</span>
             <i className="fa-solid fa-shield-halved"></i>
             <h3>Advanced Security</h3>
             <p>Protect sensitive organizational data using secure authentication and role-based access.</p>
           </div>
 
           <div className="why-card">
+            <span className="card-index">02</span>
             <i className="fa-solid fa-bug"></i>
             <h3>Vulnerability Tracking</h3>
             <p>Track vulnerabilities from detection to remediation with complete lifecycle management.</p>
           </div>
 
           <div className="why-card">
+            <span className="card-index">03</span>
             <i className="fa-solid fa-chart-line"></i>
             <h3>Analytics Dashboard</h3>
             <p>Monitor incidents using interactive dashboards, charts and reports.</p>
           </div>
 
           <div className="why-card">
+            <span className="card-index">04</span>
             <i className="fa-solid fa-users"></i>
             <h3>Role-Based Access</h3>
             <p>Admins, Analysts and Users have different permissions for improved security.</p>
@@ -163,41 +182,44 @@ function Home() {
 
       {/* ================= OUR FEATURES ================= */}
       <section className="features" id="services">
-        <h2 className="section-title">Our Features</h2>
+        <div className="section-head">
+          <span className="section-eyebrow">// platform modules</span>
+          <h2 className="section-title">Our Features</h2>
+        </div>
 
         <div className="feature-container">
           <div className="feature-card">
-            <i className="fa-solid fa-triangle-exclamation"></i>
+            <div className="feature-icon"><i className="fa-solid fa-triangle-exclamation"></i></div>
             <h3>Incident Management</h3>
             <p>Create, assign and monitor cybersecurity incidents in real time.</p>
           </div>
 
           <div className="feature-card">
-            <i className="fa-solid fa-database"></i>
+            <div className="feature-icon"><i className="fa-solid fa-database"></i></div>
             <h3>Secure Database</h3>
             <p>Store incident and vulnerability information securely with encrypted access.</p>
           </div>
 
           <div className="feature-card">
-            <i className="fa-solid fa-lock"></i>
+            <div className="feature-icon"><i className="fa-solid fa-lock"></i></div>
             <h3>JWT Authentication</h3>
             <p>Secure login and authorization using Django REST Framework JWT.</p>
           </div>
 
           <div className="feature-card">
-            <i className="fa-solid fa-bell"></i>
+            <div className="feature-icon"><i className="fa-solid fa-bell"></i></div>
             <h3>Instant Alerts</h3>
             <p>Receive notifications whenever new threats or incidents are reported.</p>
           </div>
 
           <div className="feature-card">
-            <i className="fa-solid fa-cloud"></i>
+            <div className="feature-icon"><i className="fa-solid fa-cloud"></i></div>
             <h3>Cloud Ready</h3>
             <p>Deploy your application securely on cloud infrastructure.</p>
           </div>
 
           <div className="feature-card">
-            <i className="fa-solid fa-file-shield"></i>
+            <div className="feature-icon"><i className="fa-solid fa-file-shield"></i></div>
             <h3>Compliance Reports</h3>
             <p>Generate security reports and maintain audit logs for compliance.</p>
           </div>
@@ -206,7 +228,10 @@ function Home() {
 
       {/* ================= ENQUIRY ================= */}
       <section className="enquiry">
-        <h2>Project Enquiry Form</h2>
+        <div className="section-head">
+          <span className="section-eyebrow">// get started</span>
+          <h2>Project Enquiry Form</h2>
+        </div>
 
         <form id="enquiryForm" onSubmit={handleEnquirySubmit}>
           <input type="text" id="name" name="name" placeholder="Enter Your Name" required />
@@ -219,6 +244,7 @@ function Home() {
 
       {/* ================= NEWSLETTER ================= */}
       <section className="newsletter">
+        <span className="section-eyebrow">// stay informed</span>
         <h2>Subscribe to Our Newsletter</h2>
         <p>Get cybersecurity tips and security updates directly to your inbox.</p>
 
@@ -242,18 +268,18 @@ function Home() {
 
           <div className="footer-box">
             <h3>Quick Links</h3>
-            <a href="/">🏠 Home</a>
-            <a href="/about">📝 About</a>
-            <a href="/#services">💻 Services</a>
-            <a href="/contact">📞 Contact</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/contact">Contact</a>
           </div>
 
           <div className="footer-box">
             <h3>Our Services</h3>
-            <a href="/#services">● Incident Response</a>
-            <a href="/#services">● Threat Detection</a>
-            <a href="/#services">● Cloud Security</a>
-            <a href="/#services">● Security Analytics</a>
+            <a href="/#services">Incident Response</a>
+            <a href="/#services">Threat Detection</a>
+            <a href="/#services">Cloud Security</a>
+            <a href="/#services">Security Analytics</a>
           </div>
 
           <div className="footer-box">
