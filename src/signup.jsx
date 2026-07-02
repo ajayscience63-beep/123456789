@@ -1,159 +1,122 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./signup.css";
 
 function Signup() {
   const navigate = useNavigate();
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
+
+    if (!fullName.trim() || !email.trim() || !password || !confirmPassword) {
+      setError("Please fill in every field.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    setSubmitting(true);
+    // NOTE: replace with a real account-creation API call before shipping
+    // this. There is no backend wired up yet, so this just moves the user
+    // on to the login page.
     navigate("/login");
   };
 
   return (
-    <>
-      <style>{`
-*{
-    margin:0;
-    padding:0; 
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+    <div className="signup-page">
+      <div className="signup-grid" aria-hidden="true"></div>
 
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:url("/cybersentinels.jpeg") no-repeat center center/cover;
-    position:relative;
-    overflow:hidden;
-}
-
-/* Dark Overlay */
-body::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.70);
-}
-
-/* Signup Box */
-.signup-box{
-    position:relative;
-    z-index:1;
-    width:400px;
-    padding:40px;
-    background:rgba(15,20,40,0.45);
-    border:1px solid rgba(255,255,255,0.15);
-    backdrop-filter:blur(12px);
-    border-radius:15px;
-    text-align:center;
-    color:white;
-    box-shadow:0 0 25px rgba(0,0,0,.5);
-}
-
-.signup-box h1{
-    margin-bottom:10px;
-    font-size:42px;
-}
-
-.signup-box p{
-    color:#d8d8d8;
-    margin-bottom:30px;
-}
-
-/* Input */
-
-.input-box{
-    margin-bottom:18px;
-}
-
-.input-box input{
-    width:100%;
-    padding:14px;
-    border-radius:8px;
-    border:1px solid #3c8cff;
-    background:rgba(255,255,255,.05);
-    color:white;
-    font-size:16px;
-    outline:none;
-}
-
-.input-box input::placeholder{
-    color:#ccc;
-}
-
-/* Button */
-
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    background:#1565ff;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    background:#0b4fd8;
-}
-
-.bottom-text{
-    margin-top:20px;
-    color:#ddd;
-}
-
-.bottom-text a{
-    color:#1e90ff;
-    text-decoration:none;
-}
-
-.bottom-text a:hover{
-    text-decoration:underline;
-}
-`}</style>
-      <div className="page-signup">
-        <div className="signup-box">
+      <div className="signup-box">
+        <Link to="/" className="signup-logo">
+          <i className="fa-solid fa-shield-halved"></i>
+          <span>CyberSentinels</span>
+        </Link>
 
         <h1>Sign Up</h1>
+        <p className="signup-sub">Create your account to get started.</p>
 
-        <p>Create your account to get started</p>
+        {error && <div className="signup-error">{error}</div>}
 
         <form onSubmit={handleSubmit}>
+          <div className="input-box">
+            <label htmlFor="full-name">Full Name</label>
+            <input
+              type="text"
+              id="full-name"
+              placeholder="Jane Doe"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="input-box">
-        <input type="text" placeholder="Full Name" required />
-        </div>
+          <div className="input-box">
+            <label htmlFor="signup-email">Email</label>
+            <input
+              type="email"
+              id="signup-email"
+              placeholder="you@company.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="input-box">
-        <input type="email" placeholder="Email" required />
-        </div>
+          <div className="input-box">
+            <label htmlFor="signup-password">Password</label>
+            <input
+              type="password"
+              id="signup-password"
+              placeholder="At least 8 characters"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="input-box">
-        <input type="password" placeholder="Password" required />
-        </div>
+          <div className="input-box">
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="••••••••"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="input-box">
-        <input type="password" placeholder="Confirm Password" required />
-        </div>
-
-        <button type="submit">Sign Up</button>
-
-        <div className="bottom-text">
-        Already have an account?
-        <Link to="/login">Login</Link>
-        </div>
-
+          <button type="submit" className="signup-primary-btn" disabled={submitting}>
+            {submitting ? "Creating account…" : "Sign Up"}
+          </button>
         </form>
 
+        <div className="bottom-text">
+          Already have an account? <Link to="/login">Login</Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
